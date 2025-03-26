@@ -1,5 +1,9 @@
 import json
-from streamlit_lottie import st_lottie
+try:
+    from streamlit_lottie import st_lottie
+    lottie_available = True
+except ImportError:
+    lottie_available = False
 
 import streamlit as st
 import re
