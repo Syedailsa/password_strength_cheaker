@@ -99,16 +99,21 @@ st.write("developed by Ilsa Ubaid")
 # animation
 
 def load_lottie_file(filepath: str):
-    with open(filepath, "r") as f:
-        return json.load(f)
+    try:    
+        with open(filepath, "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        st.error("lottie file path not found")
+        return None
     
 lottie_file = load_lottie_file("password-anim.json")
 
-st_lottie(
-    lottie_file,
-    reverse = False,
-    key="password cheaker",
-    loop = True,
-    height = None,
-    width = None
-)
+if lottie_file:
+    st_lottie(
+        lottie_file,
+        reverse = False,
+        key="password cheaker",
+        loop = True,
+        height = None,
+        width = None
+    )
