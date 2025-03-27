@@ -1,13 +1,30 @@
-import json
-try:
-    from streamlit_lottie import st_lottie
-    lottie_available = True
-except ImportError:
-    lottie_available = False
+# import json
+# try:
+#     from streamlit_lottie import st_lottie
+#     lottie_available = True
+# except ImportError:
+#     lottie_available = False
 
 import streamlit as st
 import re
 import random
+
+# Guide
+
+with st.container():
+    st.title("🔐 Password Guardian")
+    st.subheader("Stronger Passwords, Safer You!")
+st.markdown("""
+✨ **What It Does:**   
+🔍 Checks Strength of your passwords (Weak/Moderate/Strong)  
+⚡ Generates Secure 10-character passwords instantly  
+📊 Analyzes 4 key security factors  
+
+🛠️ **How To Use:**  
+1. Type any password in the input box below  
+2. Get instant strength feedback  
+3. Copy auto-generated secure passwords  
+""")
 
 #password generator
 
@@ -32,8 +49,6 @@ random.shuffle(password_created)
 suggested_password = ''.join(password_created)
 
 #password strength cheaker
-
-print("Strong Password Generator App")
 
 def pasword_strength_cheaker(password):
 
@@ -87,7 +102,7 @@ def pasword_strength_cheaker(password):
 
 # streamlit app
 
-st.title("Strong Password Generator & Strength Checker")
+st.title("Try it out !")
 
 
 User_password = st.text_input("Enter a strong password: ")
@@ -97,27 +112,27 @@ if User_password:
 
 
 st.write("-" * 20)
-st.write("developed by Ilsa Ubaid")
+st.caption("Developed with ❤️ by Ilsa Ubaid | Keep your accounts secure!")
 
+# Lottie animation with Json file ( "not working on deployment :(" )
 
-# animation
-
-def load_lottie_file(filepath: str):
-    try:    
-        with open(filepath, "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        st.error("lottie file path not found")
-        return None
+# def load_lottie_file(filepath: str):
+#     try:    
+#         with open(filepath, "r") as f:
+#             return json.load(f)
+#     except FileNotFoundError:
+#         st.error("lottie file path not found")
+#         return None
     
-lottie_file = load_lottie_file("password-anim.json")
+# lottie_file = load_lottie_file("password-anim.json")
 
-if lottie_file:
-    st_lottie(
-        lottie_file,
-        reverse = False,
-        key="password cheaker",
-        loop = True,
-        height = None,
-        width = None
-    )
+# if lottie_file:
+#     st_lottie(
+#         lottie_file,
+#         reverse = False,
+#         key="password cheaker",
+#         loop = True,
+#         height = None,
+#         width = None
+#     )
+
